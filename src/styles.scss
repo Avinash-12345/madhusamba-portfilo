@@ -1,1 +1,234 @@
-/* You can add global styles to this file, and also import other style files */
+// Import Bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+// Custom variables
+$primary: #3498db;
+$secondary: #2c3e50;
+$light: #ecf0f1;
+$dark: #2c3e50;
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for fixed header */
+section {
+  scroll-margin-top: 80px; /* Adjust based on your header height */
+}
+
+// Global styles
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #eee;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.section-title {
+  color: $secondary;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: $primary;
+  }
+}
+
+.stat-box {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  h3 {
+    font-size: 2.5rem;
+    color: $primary;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    color: $secondary;
+    font-weight: 500;
+  }
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  
+  .impact-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    
+    .impact-value {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $primary;
+    }
+    
+    .impact-label {
+      font-size: 0.9rem;
+      color: $secondary;
+    }
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: $primary;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $primary;
+      border: 2px solid white;
+    }
+    
+    .timeline-date {
+      font-weight: 500;
+      color: $primary;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      
+      h3 {
+        margin-bottom: 1rem;
+        color: $secondary;
+      }
+      
+      ul {
+        padding-left: 1rem;
+        
+        li {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.skill-category {
+  margin-bottom: 2rem;
+  
+  h3 {
+    color: $secondary;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    .skill-badge {
+      background: $primary;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.contact-info {
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    i {
+      font-size: 1.2rem;
+    }
+    
+    a {
+      color: $secondary;
+      text-decoration: none;
+      
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .sidebar {
+    .profile {
+      display: none;
+    }
+    
+    .nav-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  .content-container {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .stat-box {
+    margin-bottom: 1rem;
+  }
+  
+  .impact-stats {
+    grid-template-columns: 1fr;
+  }
+}

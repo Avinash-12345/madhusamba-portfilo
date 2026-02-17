@@ -1,0 +1,72 @@
+<div class="sidebar">
+  <div class="profile">
+    <img src="../../assets/profile.jpg" alt="Madhu Samba" class="profile-img" />
+    <h1>Madhu Samba</h1>
+    <p class="title">AWS DevOps Engineer</p>
+  </div>
+
+  <nav class="nav-links">
+    <a
+      (click)="scrollTo('home')"
+      [routerLink]="'/'" 
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="bi bi-house-door"></i> Home
+    </a>
+
+    <a
+      (click)="scrollTo('about')"
+      [routerLink]="'/'" 
+      fragment="about"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-person-circle"></i> About
+    </a>
+
+    <a
+      (click)="scrollTo('experience')"
+      routerLink="/"
+      fragment="experience"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-briefcase"></i> Experience
+    </a>
+
+    <a
+      (click)="scrollTo('skills')"
+      routerLink="/"
+      fragment="skills"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-lightbulb"></i> Skills
+    </a>
+
+    <a
+      (click)="scrollTo('projects')"
+      routerLink="/"
+      fragment="projects"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-kanban"></i> Projects
+    </a>
+
+    <a
+      (click)="scrollTo('contact')"
+      routerLink="/"
+      fragment="contact"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-envelope"></i> Contact
+    </a>
+  </nav>
+
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/madhusamba-dommisi-5850391ba/" target="_blank">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="../../assets/Madhu_Resume.pdf" download>
+      <i class="bi bi-file-earmark-person"></i> Download Resume
+    </a>
+  </div>
+</div>

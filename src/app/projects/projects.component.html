@@ -1,0 +1,41 @@
+<section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      
+      <div class="row">
+        @for (project of projects(); track $index; let i = $index) {
+          <div class="col-md-6 col-lg-4 mb-4" [@fadeInUp]>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-text">{{ project.description }}</p>
+                
+                <div class="tech-stack mb-3">
+                  @for (tech of project.technologies; track $index) {
+                    <span class="badge bg-primary me-1 mb-1">{{ tech }}</span>
+                  }
+                </div>
+                
+                <div class="project-links">
+                  <a [href]="project.githubLink" target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                    <i class="bi bi-github me-1"></i> Code
+                  </a>
+                  @if (project.demoLink) {
+                    <a [href]="project.demoLink" class="btn btn-sm btn-primary">
+                      <i class="bi bi-eye me-1"></i> Demo
+                    </a>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      
+      <div class="text-center mt-4">
+        <a href="https://github.com/yourprofile" target="_blank" class="btn btn-primary">
+          <i class="bi bi-github me-2"></i> View All Projects on GitHub
+        </a>
+      </div>
+    </div>
+  </section>

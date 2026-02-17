@@ -1,0 +1,141 @@
+@import '../../styles/variables.scss'; // Import your global variables
+
+#experience {
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-top: 3rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(to bottom, $primary, lighten($primary, 20%));
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -2.5rem;
+        top: 0.5rem;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $primary;
+        border: 4px solid white;
+        box-shadow: 0 0 0 2px $primary;
+        z-index: 1;
+      }
+
+      .timeline-date {
+        font-weight: 600;
+        color: $primary;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        display: inline-block;
+        background: rgba($primary, 0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border-left: 3px solid $primary;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+          color: $secondary;
+          margin-bottom: 1rem;
+          font-size: 1.3rem;
+          font-weight: 600;
+        }
+
+        ul {
+          padding-left: 1.25rem;
+          margin-bottom: 0;
+
+          li {
+            position: relative;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: lighten($secondary, 10%);
+
+            &::before {
+              content: '▹';
+              position: absolute;
+              left: -1.25rem;
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  #experience {
+    .timeline {
+      padding-left: 2rem;
+
+      &::before {
+        left: 0.75rem;
+      }
+
+      .timeline-item {
+        &::before {
+          left: -2rem;
+          width: 16px;
+          height: 16px;
+        }
+
+        .timeline-content {
+          padding: 1.25rem;
+
+          h3 {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Animation delays for each timeline item */
+.timeline-item {
+  &:nth-child(1) { transition-delay: 0.1s; }
+  &:nth-child(2) { transition-delay: 0.3s; }
+  &:nth-child(3) { transition-delay: 0.5s; }
+  &:nth-child(4) { transition-delay: 0.7s; }
+}
+
+/* Company name highlight */
+.company-name {
+  color: $primary;
+  font-weight: 600;
+}

@@ -1,0 +1,204 @@
+@import '../../styles/variables.scss'; // Import your global variables
+
+#home {
+  .intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: $secondary;
+      font-weight: 700;
+      
+      span {
+        color: $primary;
+      }
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      color: $primary;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: lighten($secondary, 10%);
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+    
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-top: 3px solid $primary;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      h3 {
+        font-size: 2.5rem;
+        color: $primary;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      
+      p {
+        color: $secondary;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .about-section {
+    margin: 4rem 0;
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      
+      @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .about-text {
+      h2 {
+        color: $secondary;
+        margin-bottom: 1.5rem;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -10px;
+          width: 50px;
+          height: 3px;
+          background: $primary;
+        }
+      }
+      
+      p {
+        line-height: 1.8;
+        color: lighten($secondary, 10%);
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      
+      .impact-card {
+        background: rgba($primary, 0.05);
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba($primary, 0.1);
+        }
+        
+        .impact-value {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: $primary;
+          margin-bottom: 0.5rem;
+        }
+        
+        .impact-label {
+          font-size: 0.9rem;
+          color: $secondary;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro, .stats-grid, .about-section {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.stats-grid { animation-delay: 0.2s; }
+.about-section { animation-delay: 0.4s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #home {
+    .intro {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+    
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+      
+      .stat-card {
+        padding: 1rem;
+        
+        h3 {
+          font-size: 2rem;
+        }
+      }
+    }
+    
+    .about-section {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #home {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

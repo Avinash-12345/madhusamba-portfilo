@@ -1,0 +1,25 @@
+<section id="skills" class="section" [@fadeIn]>
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      
+      <div class="row">
+        @for (category of skillCategories(); track $index) {
+          <div class="col-md-6 mb-4">
+            <div class="skill-category">
+              <h3 (click)="toggleCategory($index)" class="category-header">
+                <i class="bi {{category.icon}} text-primary me-2"></i>
+                {{category.title}}
+                <i class="bi bi-chevron-down float-end d-md-none"></i>
+              </h3>
+              
+              <div class="skills-list" [class.expanded]="expandedCategory() === $index">
+                @for (skill of category.skills; track $index) {
+                  <span class="skill-badge">{{skill}}</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
